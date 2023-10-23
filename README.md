@@ -1,7 +1,7 @@
-# Express_TypeORM_mysql PORT : 3032
+# Express_TypeORM_mysql PORT : 8032
 
 This project created by Node JS version 14.17.0. Used Express framework for connect to server Coding by Typescript and Testing by Jest
-Run on port 3032 this port is fix by bible team and infrastructor team so you should not change it
+Run on port 8032 this port is fix by bible team and infrastructor team so you should not change it
 
 
 ## Directory structure application MVC & CRUDC & TYPE MAPPING DATA
@@ -124,7 +124,7 @@ src
 
 ## Base URL
 
-This project have 3 step running such as [http://localhost:3032/demo/](localhost:3032), [dev](https://apidev-aws/demo/), [production](https://api-aws/demo)
+This project have 3 step running such as [http://localhost:8032/demo/](localhost:8032), [dev](https://apidev-aws/demo/), [production](https://api-aws/demo)
 
 About dev which is private url you must connect Pulse Secure before running
 
@@ -139,7 +139,7 @@ Database as MySQL version 5.6.20 on trueplookpanya
 
 ## Development server
 
-Run `npm start` for a dev server. Navigate `localhost:3032`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate `localhost:8032`. The app will automatically reload if you change any of the source files.
 
  
 ## Testing
@@ -200,15 +200,15 @@ About dev which is private url you must connect Pulse Secure before running
 
 # https://pm2.keymetrics.io/docs/usage/quick-start/
 
-# 3032/demo
+# 8032/demo
 
 - Run `pm2 list`
 - Run `pm2 delete all`
 - Run `pm2 flush all`
 
-- Run `pm2 delete 3032/demo`
-- Run `pm2 flush 3032/demo`
-- Run `pm2 start dist/server.js --name 3032/demo`
+- Run `pm2 delete 8032/demo`
+- Run `pm2 flush 8032/demo`
+- Run `pm2 start dist/server.js --name 8032/demo`
 
 * Run `npm install md5-typescript -save`
 * Run `npm install email-validator -save`
@@ -285,7 +285,7 @@ About dev which is private url you must connect Pulse Secure before running
 
 ## BY Kongnakorn Jantakun
 
- pm2 start ts-node --name=3032/demo -- -P tsconfig.json src/server.ts
+ pm2 start ts-node --name=8032/demo -- -P tsconfig.json src/server.ts
 
 - OR Run ` npm run start `
 ###  Run `cd /Data/app/demo` 
@@ -303,8 +303,8 @@ Run `pm2 save`
 Run `pm2 cleardump`
 
 
-Run `pm2 delete 3032/demo `
-Run `pm2 flush 3032/demo ` 
+Run `pm2 delete 8032/demo `
+Run `pm2 flush 8032/demo ` 
 Run `npm run start-dev`
 Run `npm run start-prod`
 
@@ -343,5 +343,5 @@ Run `pm2 monit ` // เมื่อต้องการดูว่าตอน
 ###  Run `npm run start `  
 ###  Run ` pm2 monit ` 
 
-###  Run ` pm2 start ts-node --name=3032/demo-- -P tsconfig.json src/server.ts ` 
+###  Run ` pm2 start ts-node --name=8032/demo-- -P tsconfig.json src/server.ts ` 
 
