@@ -200,7 +200,7 @@ export class CrsMyWislishoneRepository extends Repository<CrsMyWislishone>{
                         course_id: course_id,
                         create_date: create_date,
                         update_date: update_date,
-                        status: status,
+                        StatusCode: status,
         }   
         console.log("crs_my_wislish values", values); 
        // return 
@@ -221,7 +221,7 @@ export class CrsMyWislishoneRepository extends Repository<CrsMyWislishone>{
         }
         const values ={ 
                         update_date: update_date, 
-                        status: status,
+                        StatusCode: status,
                       }    
         return this.createQueryBuilder("crs_my_wislish")
                     .update("crs_my_wislish")

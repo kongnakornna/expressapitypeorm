@@ -9,8 +9,8 @@ import * as plookblogcacheController from "../controllers/plookblogcache.control
 const util = require('util')
 const router = express.Router(); 
 //modules User  
-router.post("/", (req: Request, res: Response) => ok(res, { router:"blog"  , StatusDescription: "Modules plookblog ",message_th: "ระบบ blog",  status: "true"  , statusCode: 200,data:null}));
-router.get("/", (req: Request, res: Response) => ok(res, { router: "blog", StatusDescription: "Modules plookblog ", message_th: "ระบบ blog", status: "true", statusCode: 200, data: null }));
+router.post("/", (req: Request, res: Response) => ok(res, { router:"blog"  , StatusDescription: "Modules plookblog ",message_th: "ระบบ blog",  StatusCode: "true"  , statusCode: 200,data:null}));
+router.get("/", (req: Request, res: Response) => ok(res, { router: "blog", StatusDescription: "Modules plookblog ", message_th: "ระบบ blog", StatusCode: "true", statusCode: 200, data: null }));
 //list
 router.get("/home", plookblogController.home);
 router.get("/list",plookblogController.list);

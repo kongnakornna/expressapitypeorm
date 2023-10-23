@@ -11,7 +11,7 @@ export class Validator {
                 remark: "success",
                 StatusDescription: 'Password Validator',
                 message_th: 'Password Validator', 
-                status: 200,
+                StatusCode: 200,
                 time_ms: null
             },
             data: data,

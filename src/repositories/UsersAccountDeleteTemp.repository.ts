@@ -260,7 +260,7 @@ export class UsersAccountDeleteTempRepository extends Repository<UsersAccountDel
                         user_password: user_password,
                         user_password_tmp: user_password_tmp,
                         user_email: user_email,
-                        user_status: user_status,
+                        user_StatusCode: user_status,
                         user_group: user_group,
                         user_permission: user_permission,
                         user_create_date : user_create_date,
@@ -282,7 +282,7 @@ export class UsersAccountDeleteTempRepository extends Repository<UsersAccountDel
                         psn_tel: psn_tel,
                         psn_id_number: psn_id_number,
                         psn_birthdate: psn_birthdate,
-                        psn_public_status: psn_public_status,
+                        psn_public_StatusCode: psn_public_status,
                         job_name: job_name,
                         job_address: job_address,
                         job_edu_name: job_edu_name,
@@ -294,7 +294,7 @@ export class UsersAccountDeleteTempRepository extends Repository<UsersAccountDel
                         acc_user_tvw: acc_user_tvw,
                         acc_user_tvw_nid: acc_user_tvw_nid,
                         introduce: introduce,
-                        privacy_policy_status: privacy_policy_status,
+                        privacy_policy_StatusCode: privacy_policy_status,
                         curator_child_email: curator_child_email,
                         salutation: salutation,
                         school_id: school_id,
@@ -324,7 +324,7 @@ export class UsersAccountDeleteTempRepository extends Repository<UsersAccountDel
         const user_status= input.user_status;   
         const values ={  
                         user_update_date: user_update_date,
-                        user_status: user_status,
+                        user_StatusCode: user_status,
           }
         console.log(`Result_update values `,values);  
         console.log(`Result_update user_id `,user_id);  

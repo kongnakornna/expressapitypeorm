@@ -14,14 +14,14 @@ router.post("/", (req: Request, res: Response) => ok(res, {
     , mode: "service"
         , Description:  ` ${process.env.npm_package_description || "#N/A"}`
         , Author: ` ${process.env.npm_package_author || "Kongnakorn Jantakun"}`
-        , status: "true"
+        , StatusCode: "true"
         , statusCode: 200
         , statusrun: 1
         , create_date: create_date
         , last_update: update
         , chackpoint:getRandomint(6)
-        , message_status: "The system working mode"
-        , message_th_status: "ระบบทำงาน ในโหมดปกติ"}));
+        , message_StatusCode: "The system working mode"
+        , message_th_StatusCode: "ระบบทำงาน ในโหมดปกติ"}));
 router.get("/", (req: Request, res: Response) => ok(res, { 
         nameservice:"Micro service API"
         ,StatusDescription: `API Version ${process.env.npm_package_version || "#N/A"}`
@@ -29,14 +29,14 @@ router.get("/", (req: Request, res: Response) => ok(res, {
     , mode: "service"
         , Description:  ` ${process.env.npm_package_description || "#N/A"}`
         , Author: ` ${process.env.npm_package_author || "Kongnakorn Jantakun"}`
-        , status: "true"
+        , StatusCode: "true"
         , statusCode: 200
         , chackpoint:getRandomint(6)
         , statusrun: 1
         , create_date: create_date
         , last_update: update
-        , message_status: "The system working mode"
-        , message_th_status: "ระบบทำงาน ในโหมดปกติ"}));
+        , message_StatusCode: "The system working mode"
+        , message_th_StatusCode: "ระบบทำงาน ในโหมดปกติ"}));
 // generateAccessToken
 //router.get("/state", ApikeyController.generateState);
 router.get("/generateToken", AuthController.generateAccessToken);
@@ -44,12 +44,12 @@ router.post("/generateToken", AuthController.generateAccessToken);
 router.get("/gettoken", AuthController.generateAccessToken);
 router.post("/gettoken", AuthController.generateAccessToken);
 router.get("/verifyToken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { status:1,StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
-router.post("/verifytoken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { status: 1, StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
+router.post("/verifytoken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { StatusCode: 1, StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
 /***********************/
 router.get("/accessToken", AuthController.generateAccessToken);
 router.post("/accessToken", AuthController.generateAccessToken);
 router.get("/checkAuthenToken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { status:1,StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
-router.post("/checkAuthenToken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { status: 1, StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
+router.post("/checkAuthenToken", authenticateMiddleware, (req: Request, res: Response) => ok(res, { StatusCode: 1, StatusDescription: "Verify Token is match ,Access  allow application service", message_th: "Token ถูกต้อง อนุญาตให้ใช้งานระบบ" }));
 /***********************/
 // CacheController
 router.get("/Test", CacheController.GetTest);

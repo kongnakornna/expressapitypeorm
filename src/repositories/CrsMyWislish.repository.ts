@@ -193,7 +193,7 @@ export class CrsMyWislishRepository extends Repository<CrsMyWislish>{
                     course_id: course_id,
                     create_date: create_date,
                     update_date: update_date,
-                    status: status,
+                    StatusCode: status,
                 })
         .execute();
     }
@@ -205,7 +205,7 @@ export class CrsMyWislishRepository extends Repository<CrsMyWislish>{
         const status = input.status;    
         const values ={ 
                         update_date: update_date, 
-                        status: status,
+                        StatusCode: status,
                       }    
         return this.createQueryBuilder("crs_my_wislish")
                     .update("crs_my_wislish")
@@ -219,7 +219,7 @@ export class CrsMyWislishRepository extends Repository<CrsMyWislish>{
         const create_date= input.create_date; 
         const update_date= input.update_date;
         const status : number = input.status;    
-        const values ={  status: status, }  
+        const values ={  StatusCode: status, }  
         console.warn(`input `,input);
         console.warn(`values `, values);
         // UPDATE crs_my_wislish SET  status = '0' WHERE user_id = 543622 AND course_id=1 

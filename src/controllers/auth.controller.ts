@@ -28,8 +28,6 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
                 const result = generateToken({gen}); 
                 ok(res, { 
                         token: result, 
-                        status: 1, 
-                       // idkey:apikey,
                         StatusDescription: 'Generated token has been successfully',
                         StatusDescription_thai: 'สร้าง โทเค็นสำเร็จ สามารถนำไปเข้าระบบได้' ,
                         //headers:headers,body:body,query:query,params:params,
@@ -37,8 +35,6 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
             }else{
                 Forbidden(res, {  
                     token: null, 
-                    status: 0, 
-                   // idkey:null,
                     StatusDescription: 'forbidden access,invalid apikey',
                     StatusDescription_thai: 'ไม่อนุญาตให้เข้าถึงระบบ,apikey ไม่ถูกต้อง', 
                     //headers:headers,body:body,query:query,params:params,
@@ -52,8 +48,6 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
                 const result = generateToken({gen}); 
                 ok(res, { 
                         token: result, 
-                        status: 1, 
-                       // idkey:user_id,
                         StatusDescription: 'Generated token has been successfully',
                         StatusDescription_thai: 'สร้าง โทเค็นสำเร็จ สามารถนำไปเข้าระบบได้' ,
                         //headers:headers,body:body,query:query,params:params,
@@ -61,8 +55,6 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
             } else {
                 Forbidden(res, { 
                     token:null,
-                    status: 0,
-                   // idkey:user_id,
                     StatusDescription: 'user_id  not match  ,forbidden access ',
                    StatusDescription_thai: 'user_id  ไม่ถูกต้อง ไม่อนุญาตให้เข้าถึงระบบ', 
                     //headers:headers,body:body,query:query,params:params,
@@ -72,8 +64,6 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
         }else{ 
             Forbidden(res, {  
                 token: null, 
-                status: 0, 
-               // idkey:null,
                 StatusDescription: 'forbidden access,please send data apikey or user_id to generate token',
                 StatusDescription_thai: 'ไม่อนุญาตให้เข้าถึงระบบ,กรุณาส่ง apikey หรือ user_id เพื่อรับ token', 
                 //headers:headers,body:body,query:query,params:params,

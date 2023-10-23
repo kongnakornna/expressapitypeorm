@@ -260,7 +260,7 @@ export class CrsMyCourseTaskRepository extends Repository<CrsMyCourseTask>{
                         course_id: course_id,
                         create_date: create_date,
                         update_date: update_date,
-                        task_learning_status: task_learning_status,
+                        task_learning_StatusCode: task_learning_status,
                     }    
         return this.createQueryBuilder("crs_my_course_task")
             .insert()
@@ -277,7 +277,7 @@ export class CrsMyCourseTaskRepository extends Repository<CrsMyCourseTask>{
         const task_learning_status= input.task_learning_status; 
         const values ={
                     update_date: update_date,
-                    task_learning_status: task_learning_status,
+                    task_learning_StatusCode: task_learning_status,
                       }    
         return this.createQueryBuilder("crs_my_course_task")
                     .update("crs_my_course_task")

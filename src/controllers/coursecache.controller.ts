@@ -47,7 +47,7 @@ export const GetTest = async (req: Request, res: Response, next: NextFunction) =
                             remark: "success",
                             StatusDescription: 'Test',
                             message_th: 'Test', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: resultcache,  
@@ -72,7 +72,7 @@ export const getOTP = async (req: Request, res: Response, next: NextFunction) =>
                 remark: "Access",
                 StatusDescription: 'OTP',
                 message_th: 'OTP',
-                status: 200,
+                StatusCode: 200,
                 time_ms: null
             },
             data: otp,
@@ -101,7 +101,7 @@ export const validateOTP = async (req: Request, res: Response, next: NextFunctio
                     remark: "Unaccess",
                     StatusDescription: 'otp is null',
                     message_th: 'ไม่พบข้อมูล otp กรุณาตรวจสอบ',
-                    status: 400,
+                    StatusCode: 400,
                     time_ms: null
                 },
                 data: null,
@@ -125,7 +125,7 @@ export const validateOTP = async (req: Request, res: Response, next: NextFunctio
                             remark: "success",
                             StatusDescription: 'OTP',
                             message_th: 'OTP', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: resultOTP,
@@ -161,7 +161,7 @@ export const statuscacheserver = async (req: Request, res: Response, next: NextF
                                 remark: "success",
                                 StatusDescription: 'Status cache server',
                                 message_th: 'Status cache server', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             data: resultcache,  
@@ -213,7 +213,7 @@ export const Type = async (req: Request, res: Response, next: NextFunction) => {
                         remark: "success",
                         StatusDescription: 'Success',
                         message_th: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     data: typeResult,
@@ -259,7 +259,7 @@ export const getType = async (req: Request, res: Response, next: NextFunction) =
         const resultcache = await Cache.GetCacheData(keycache); 
         if (resultcache != null) {
             //console.log("GetCacheData result cache ", resultcache)
-            const redisstatus: any = 1;
+            const redis_st: any = 1;
             const Result = resultcache;
             console.log("CacheData ", Result)
             if (deletekey == 1) { 
@@ -275,7 +275,7 @@ export const getType = async (req: Request, res: Response, next: NextFunction) =
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: Result,
@@ -284,7 +284,7 @@ export const getType = async (req: Request, res: Response, next: NextFunction) =
                 ok(res, rts); 
         } else {
             //console.log("resultcache", null)
-            var redisstatus: any = 0;
+            var redis_st: any = 0;
             const Result: any[] = []; 
             if (typeId >= 1) {
                 const Result = await typeRepository.findCrsTypeTask(typeId, 1);
@@ -307,7 +307,7 @@ export const getType = async (req: Request, res: Response, next: NextFunction) =
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: Result,
@@ -334,7 +334,7 @@ export const getType = async (req: Request, res: Response, next: NextFunction) =
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: Result,
@@ -395,7 +395,7 @@ export const getCategory = async (req: Request, res: Response, next: NextFunctio
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: typeResult,
@@ -405,8 +405,7 @@ export const getCategory = async (req: Request, res: Response, next: NextFunctio
                 var payload = {
                         header: {
                                 StatusDescription: 'Success',
-                                message_th: 'สำเร็จ',
-                                status: 1,
+                                message_th: 'สำเร็จ', 
                                 headers: headers,
                                 body: body,
                                 query: query,
@@ -450,7 +449,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                         remark: "Warning!!",
                         StatusDescription: 'user_id is null',
                         message_th: 'ไม่พบข้อมูล user_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -467,7 +466,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                         remark: "Warning!!",
                         StatusDescription: 'course_id is null',
                         message_th: 'ไม่พบข้อมูล course_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -506,7 +505,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                                 remark: "duplicate information & active data",
                                 StatusDescription: 'information that already exists. & active data',
                                 message_th: 'ข้อมูลช้ำกับข้อมูลที่มีอยู่แล้ว & active data',
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             data: ResultInsertMyWislish,
@@ -530,7 +529,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                                         remark: "No information Course found in the system.",
                                         StatusDescription: 'No information Course  found in the system..',
                                         message_th: 'ไม่พบข้อมูล Course ในระบบ',
-                                        status: 404,
+                                        StatusCode: 404,
                                         time_ms: null,
                                     },
                                     data: rowsTaskcourse,
@@ -546,7 +545,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                                         remark: "Found information Course in the system..",
                                         StatusDescription: 'Found information Course in the system..',
                                         message_th: 'พบข้อมูล Course ในระบบ',
-                                        status: 200,
+                                        StatusCode: 200,
                                         time_ms: null
                                     },
                                     data: null,
@@ -571,7 +570,7 @@ export const addMywislish = async (req: Request, res: Response, next: NextFuncti
                                         remark: "insertData MyWislish",
                                         StatusDescription: 'insertData MyWislish',
                                         message_th: 'เพิ่มข้อมูล MyWislish', 
-                                        status: 200,
+                                        StatusCode: 200,
                                         time_ms: null
                                     },  
                                 data: ResultInsertMyWislish,
@@ -618,7 +617,7 @@ export const RemoveMywislish = async (req: Request, res: Response, next: NextFun
                             remark: "Warning!!",
                             StatusDescription: 'user_id is null',
                             message_th: 'ไม่พบข้อมูล user_id',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -634,7 +633,7 @@ export const RemoveMywislish = async (req: Request, res: Response, next: NextFun
                             remark: "Warning!!",
                             StatusDescription: 'course_id is null',
                             message_th: 'ไม่พบข้อมูล course_id',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -673,7 +672,7 @@ export const RemoveMywislish = async (req: Request, res: Response, next: NextFun
                                     remark: "Data has been deleted.",
                                     StatusDescription: 'Data has been deleted already exists.',
                                     message_th: 'ทำการลบข้อมูลแล้ว.',
-                                    status: 200,
+                                    StatusCode: 200,
                                     time_ms: null
                                 },
                                 data: ResultInsertMyWislish,
@@ -688,7 +687,7 @@ export const RemoveMywislish = async (req: Request, res: Response, next: NextFun
                                     remark: "Not information found in the system.",
                                     StatusDescription: 'Not information found in the system.',
                                     message_th: 'ไม่พบข้อมูล ในระบบ',
-                                    status: 200,
+                                    StatusCode: 200,
                                     time_ms: null
                                 },
                                 data: null,
@@ -735,7 +734,7 @@ export const getMywislish = async (req: Request, res: Response, next: NextFuncti
                             remark: "success",
                             StatusDescription: 'user_id is null',
                             message_th: 'ไม่พบข้อมูล user_id กรุณาตรวจสอบ',
-                            status: 400,
+                            StatusCode: 400,
                             time_ms: null
                         },
                         data: null,
@@ -848,7 +847,7 @@ export const getMywislish = async (req: Request, res: Response, next: NextFuncti
                             course_id: course_id,
                             course_name: coursename, 
                             user_id: user_id, 
-                            status: status, 
+                            StatusCode: status, 
                             category_id: category_id, 
                             subject_id: subject_id, 
                             subject_parent_id: subject_parent_id, 
@@ -883,7 +882,7 @@ export const getMywislish = async (req: Request, res: Response, next: NextFuncti
                                 remark: "success",
                                 StatusDescription: 'Success',
                                 message_th: 'สำเร็จ', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             input_query:query,
@@ -931,7 +930,7 @@ export const getLevel= async (req: Request, res: Response, next: NextFunction) =
                 const resultcache = await Cache.GetCacheData(keycache);   //  Get Cache Data 
                 if (resultcache != null) {
                     //console.log("GetCacheData result cache ", resultcache)
-                    const redisstatus: any = 1;
+                    const redis_st: any = 1;
                     const dataResult = resultcache;
                     console.log("CacheData ", Result)
                     if (deletekey == 1) { 
@@ -947,7 +946,7 @@ export const getLevel= async (req: Request, res: Response, next: NextFunction) =
                                     remark: "success",
                                     StatusDescription: 'Success',
                                     message_th: 'สำเร็จ', 
-                                    status: 200,
+                                    StatusCode: 200,
                                     time_ms: null
                                 },
                                 data: dataResult,
@@ -957,7 +956,7 @@ export const getLevel= async (req: Request, res: Response, next: NextFunction) =
                     return // exit loop ออกจากลูปการทำงาน 
                 } else {
                     //console.log("resultcache", null)
-                        var redisstatus: any = 0;
+                        var redis_st: any = 0;
                         
                         if (id>=1) { 
                             dataResult = await Level.findLevelparentid(id); 
@@ -981,7 +980,7 @@ export const getLevel= async (req: Request, res: Response, next: NextFunction) =
                                     remark: "success",
                                     StatusDescription: 'Success',
                                     message_th: 'สำเร็จ', 
-                                    status: 200,
+                                    StatusCode: 200,
                                     time_ms: null
                                 },
                                 data: dataResult,
@@ -1030,7 +1029,7 @@ export const getSubject= async (req: Request, res: Response, next: NextFunction)
                                 remark: "success",
                                 StatusDescription: 'Success',
                                 message_th: 'สำเร็จ', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             }, 
                             data: typeResult,
@@ -1078,7 +1077,7 @@ export const getSection = async (req: Request, res: Response, next: NextFunction
                     const id: any = value.id; 
                     const section_name: any = value.section_name; 
                     const description: any = value.description; 
-                    const status: any = value.status; 
+                    const StatusCode: any = value.status; 
                     data.id = id;
                     data.section_name = section_name;
                     data.description = description;
@@ -1093,7 +1092,7 @@ export const getSection = async (req: Request, res: Response, next: NextFunction
                                 remark: "success",
                                 StatusDescription: 'Success',
                                 message_th: 'สำเร็จ', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             }, 
                             data: typeResult,
@@ -1137,7 +1136,7 @@ export const getSectionChild = async (req: Request, res: Response, next: NextFun
                                 remark: "success",
                                 StatusDescription: 'section_id is null',
                                 message_th: 'ไม่พบข้อมูล section_id กรุณาตรวจสอบ', 
-                                status: 400,
+                                StatusCode: 400,
                                 time_ms: null
                             },
                             data: null,
@@ -1203,7 +1202,7 @@ export const getSectionChild = async (req: Request, res: Response, next: NextFun
                             remark: "success",
                             StatusDescription: 'Data is null',
                             message_th: 'ไม่พบข้อมูล', 
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -1294,7 +1293,7 @@ export const getSectionChild = async (req: Request, res: Response, next: NextFun
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         }, 
                         input_query:query,
@@ -1357,7 +1356,7 @@ export const getMyCourse= async (req: Request, res: Response, next: NextFunction
                             remark: "success",
                             StatusDescription: 'user_id is null',
                             message_th: 'ไม่พบข้อมูล user_id กรุณาตรวจสอบ', 
-                            status: 400,
+                            StatusCode: 400,
                             time_ms: null
                         },
                         data: null,
@@ -1422,7 +1421,7 @@ export const getMyCourse= async (req: Request, res: Response, next: NextFunction
                         remark: "unsuccess",
                         StatusDescription: 'Data is null',
                         message_th: 'ไม่พบข้อมูล', 
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -1549,7 +1548,7 @@ export const getMyCourse= async (req: Request, res: Response, next: NextFunction
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         }, 
                         input_query:query,
@@ -1609,7 +1608,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                             remark: "Warning!!",
                             StatusDescription: 'user_id is null',
                             message_th: 'ไม่พบข้อมูล user_id',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -1624,7 +1623,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                             remark: "Warning!!",
                             StatusDescription: 'course_id is null',
                             message_th: 'ไม่พบข้อมูล course_id',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -1765,7 +1764,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                                 remark: "update Success",
                                 StatusDescription: 'Update task',
                                 message_th: 'Update task',
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             data: null,
@@ -1789,7 +1788,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                                 remark: "Course not found",
                                 StatusDescription: 'Course not found',
                                 message_th: 'ไม่พบข้อมูล Course ในระบบ',
-                                status: 404,
+                                StatusCode: 404,
                                 time_ms: null
                             },
                             data: null,
@@ -1922,7 +1921,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                                         remark: "insertData",
                                         StatusDescription: 'insertData',
                                         message_th: 'เพิ่มข้อมูล', 
-                                        status: 200,
+                                        StatusCode: 200,
                                         time_ms: null
                                     },  
                                     data: resultData,
@@ -1936,7 +1935,7 @@ export const addMyCourse= async (req: Request, res: Response, next: NextFunction
                             remark: "insertData",
                             StatusDescription: 'insertData',
                             message_th: 'เพิ่มข้อมูล', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },  
                         data: ResultArray,
@@ -1962,9 +1961,9 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
         const user_id: number = query.user_id;
         const course_id: number = query.course_id; 
         const task_id: number = query.task_id; 
-        const task_learning_status: number = query.task_learning_status; 
-        const learningstatus: number = query.learningstatus; 
-        if(learningstatus!=null){  const task_learning_status: number = learningstatus; }
+        const task_learning_StatusCode: number = query.task_learning_status; 
+        const learningStatusCode: number = query.learningstatus; 
+        if(learningstatus!=null){  const task_learning_StatusCode: number = learningstatus; }
         const str: any = req.headers.authorization 
         const token: any = str.replace("Bearer ", "")  
         try { 
@@ -1980,7 +1979,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                         remark: "Warning!!",
                         StatusDescription: 'user_id is null',
                         message_th: 'ไม่พบข้อมูล user_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -1995,7 +1994,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                         remark: "Warning!!",
                         StatusDescription: 'course_id is null',
                         message_th: 'ไม่พบข้อมูล course_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -2010,7 +2009,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                         remark: "Warning!!",
                         StatusDescription: 'task_id is null',
                         message_th: 'ไม่พบข้อมูล task_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -2026,7 +2025,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                         remark: "Warning!!",
                         StatusDescription: 'task_learning_status is null',
                         message_th: 'ไม่พบข้อมูล task_learning_status',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -2034,7 +2033,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                 NotFound(res, rss);
                 return // exit loop ออกจากลูปการทำงาน 
                 */
-                const task_learning_status: number = 1;
+                const task_learning_StatusCode: number = 1;
             }  
             if (user_id != null && course_id != null && task_id != null) {
                 const filter1: any = {}
@@ -2081,7 +2080,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                                                 remark: "update information.",
                                                 StatusDescription: 'update information successful.',
                                                 message_th: 'แก้ไขข้อมูล สำเร็จ.', 
-                                                status: 200,
+                                                StatusCode: 200,
                                                 time_ms: null
                                             },  
                                             input:query,
@@ -2104,7 +2103,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                                                 remark: "update information..",
                                                 StatusDescription: 'update information successful..',
                                                 message_th: 'แก้ไขข้อมูล สำเร็จ ..', 
-                                                status: 200,
+                                                StatusCode: 200,
                                                 time_ms: null
                                     },  
                                             input:query,
@@ -2120,7 +2119,7 @@ export const learningstatusMyTaskCourse= async (req: Request, res: Response, nex
                             remark: "Not Found",
                             StatusDescription: 'Data Not Found the system',
                             message_th: 'ไม่พบข้อมูลที่ระบุกรุณาตรวจสอบ',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         input:query,
@@ -2155,7 +2154,7 @@ export const getMyCoursetask= async (req: Request, res: Response, next: NextFunc
             const task_id: number = query.task_id;
             const user_id: number = query.user_id;
             const course_id: number = query.course_id;
-            const task_learning_status: number = query.task_learning_status;
+            const task_learning_StatusCode: number = query.task_learning_status;
             const subject_id: number = query.subject_id;
             const subject_parent_id: number = query.subject_parent_id; 
             const category_id: number = query.category_id;
@@ -2171,7 +2170,7 @@ export const getMyCoursetask= async (req: Request, res: Response, next: NextFunc
                         remark: "success",
                         StatusDescription: 'user_id is null',
                         message_th: 'ไม่พบข้อมูล user_id กรุณาตรวจสอบ',
-                        status: 400,
+                        StatusCode: 400,
                         time_ms: null
                     },
                     data: null,
@@ -2187,7 +2186,7 @@ export const getMyCoursetask= async (req: Request, res: Response, next: NextFunc
                         remark: "success",
                         StatusDescription: 'course_id is null',
                         message_th: 'ไม่พบข้อมูล course_id กรุณาตรวจสอบ',
-                        status: 400,
+                        StatusCode: 400,
                         time_ms: null
                     },
                     data: null,
@@ -2335,7 +2334,7 @@ export const getMyCoursetask= async (req: Request, res: Response, next: NextFunc
                             course_ratings: course_ratings, 
                             type_name_th:type_name_th,
                             type_name:type_name,
-                            task_learning_status: task_learning_status,
+                            task_learning_StatusCode: task_learning_status,
                             fullname:fullname,
                         } 
                 tempData.push(data); 
@@ -2468,7 +2467,7 @@ export const getMyCoursetask= async (req: Request, res: Response, next: NextFunc
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         }, 
                         input_query:query,
@@ -2523,7 +2522,7 @@ export const getCourse= async (req: Request, res: Response, next: NextFunction) 
                         remark: "Unaccess",
                         StatusDescription: 'course_id is null',
                         message_th: 'ไม่พบข้อมูล course_id กรุณาตรวจสอบ',
-                        status: 400,
+                        StatusCode: 400,
                         time_ms: null
                     },
                     data: null,
@@ -2589,7 +2588,7 @@ export const getCourse= async (req: Request, res: Response, next: NextFunction) 
                                 remark: "Unaccess",
                                 StatusDescription: 'Data is null',
                                 message_th: 'ไม่พบข้อมูล ',
-                                status: 404,
+                                StatusCode: 404,
                                 time_ms: null
                             },
                             data: null,
@@ -2694,7 +2693,7 @@ export const getCourse= async (req: Request, res: Response, next: NextFunction) 
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         }, 
                         input_query:query,
@@ -2739,7 +2738,7 @@ export const getCourseTask= async (req: Request, res: Response, next: NextFuncti
                     remark: "Unaccess",
                     StatusDescription: 'course_id is null',
                     message_th: 'ไม่พบข้อมูล course_id กรุณาตรวจสอบ',
-                    status: 400,
+                    StatusCode: 400,
                     time_ms: null
                 },
                 data: null,
@@ -2800,7 +2799,7 @@ export const getCourseTask= async (req: Request, res: Response, next: NextFuncti
                             remark: "Unaccess",
                             StatusDescription: 'Data is null',
                             message_th: 'ไม่พบข้อมูล ',
-                            status: 404,
+                            StatusCode: 404,
                             time_ms: null
                         },
                         data: null,
@@ -2880,7 +2879,7 @@ export const getCourseTask= async (req: Request, res: Response, next: NextFuncti
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         }, 
                         input_query:query,
@@ -2929,7 +2928,7 @@ export const getXxxx= async (req: Request, res: Response, next: NextFunction) =>
                         remark: "Unaccess",
                         StatusDescription: 'user_id is null',
                         message_th: 'ไม่พบข้อมูล user_id',
-                        status: 404,
+                        StatusCode: 404,
                         time_ms: null
                     },
                     data: null,
@@ -2969,7 +2968,7 @@ export const getXxxx= async (req: Request, res: Response, next: NextFunction) =>
                         remark: "success",
                         StatusDescription: 'Success',
                         message_th: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     }, 
                     input_query:query,
@@ -3022,7 +3021,7 @@ export const CacheTemplate = async (req: Request, res: Response, next: NextFunct
             const resultcache = await Cache.GetCacheData(keycache);   //  Get Cache Data 
             if (resultcache != null) {
                 //console.log("GetCacheData result cache ", resultcache)
-                const redisstatus: any = 1;
+                const redis_st: any = 1;
                 const Result = resultcache;
                 console.log("CacheData ", Result)
                 if (deletekey == 1) { 
@@ -3038,7 +3037,7 @@ export const CacheTemplate = async (req: Request, res: Response, next: NextFunct
                                 remark: "success",
                                 StatusDescription: 'Success',
                                 message_th: 'สำเร็จ', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             data: Result,
@@ -3047,7 +3046,7 @@ export const CacheTemplate = async (req: Request, res: Response, next: NextFunct
                     ok(res, rts); 
             } else {
                 //console.log("resultcache", null)
-                var redisstatus: any = 0;
+                var redis_st: any = 0;
                 
                 const Result = 'data';//await typeRepository.findAllCrsTypeTask(limit);
                     console.log(`casecon 2 findAllCrsTypeTask `); 
@@ -3068,7 +3067,7 @@ export const CacheTemplate = async (req: Request, res: Response, next: NextFunct
                                 remark: "success",
                                 StatusDescription: 'Success',
                                 message_th: 'สำเร็จ', 
-                                status: 200,
+                                StatusCode: 200,
                                 time_ms: null
                             },
                             data: Result,

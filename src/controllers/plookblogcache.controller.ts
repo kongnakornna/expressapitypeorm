@@ -56,7 +56,7 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
         const resultcache = await Cache.GetCacheData(keycache); 
         if (resultcache != null) {
             //console.log("GetCacheData result cache ", resultcache)
-            const redisstatus: any = 1;
+            const redis_st: any = 1;
             const Result = resultcache;
             console.log("CacheData ", Result)
             if (deletekey == 1) {
@@ -71,11 +71,11 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
                     remark: "success",
                     StatusDescription: 'Success',
                     message_th: 'สำเร็จ',
-                    status: 200,
+                    StatusCode: 200,
                     time_ms: null
                 },
                 data: Result,
-                cache_status: redisstatus,
+                cache_StatusCode: redisstatus,
                 cache_type: 'redis',
                 query: query,
                 category_id: category_id,
@@ -146,7 +146,7 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
                 const parent_idx: number = value.parent_idx || null;
                 const child_order: number = value.child_order || null;
                 const credit_by: number = value.credit_by || null;
-                const record_status: number = value.record_status || null;
+                const record_StatusCode: number = value.record_status || null;
                 const create_date: string = value.create_date || null;
                 const start_date: string = value.start_date || null;
                 const end_date: string = value.end_date || null;
@@ -192,7 +192,7 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
                     parent_idx: parent_idx,
                     child_order: child_order,
                     credit_by: credit_by,
-                    record_status: record_status,
+                    record_StatusCode: record_status,
                     create_date: create_date,
                     start_date: start_date,
                     end_date: end_date,
@@ -250,7 +250,7 @@ export const list = async (req: Request, res: Response, next: NextFunction) => {
                     remark: "home",
                     StatusDescription: ' success',
                     message_th: 'สำเร็จ',
-                    status: 200,
+                    StatusCode: 200,
                     time_ms: null
                 },
                 input_query: query,
@@ -452,7 +452,7 @@ export const home = async (req: Request, res: Response, next: NextFunction) => {
                         remark: "home",
                         StatusDescription: ' success',
                         message_th: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query:query,
@@ -489,7 +489,7 @@ export const datails = async (req: Request, res: Response, next: NextFunction) =
                                 remark: "Warning!!",
                                 StatusDescription: 'idx is null',
                                 message_th: 'ไม่พบข้อมูล idx',
-                                status: 404,
+                                StatusCode: 404,
                                 time_ms: null
                             },
                             data: null,
@@ -526,7 +526,7 @@ export const datails = async (req: Request, res: Response, next: NextFunction) =
                 const parent_idx: number = value.parent_idx || null;
                 const child_order: number = value.child_order || null;
                 const credit_by: number = value.credit_by || null;
-                const record_status: number = value.record_status || null;
+                const record_StatusCode: number = value.record_status || null;
                 const create_date: string = value.create_date || null;
                 const start_date: string = value.start_date || null;
                 const end_date: string = value.end_date || null;
@@ -572,7 +572,7 @@ export const datails = async (req: Request, res: Response, next: NextFunction) =
                   parent_idx: parent_idx,
                   child_order: child_order,
                   credit_by: credit_by,
-                  record_status: record_status,
+                  record_StatusCode: record_status,
                   create_date: create_date,
                   start_date: start_date,
                   end_date: end_date,
@@ -616,7 +616,7 @@ export const datails = async (req: Request, res: Response, next: NextFunction) =
                         remark: "category",
                         StatusDescription: ' success',
                         message_th: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query:query, 
@@ -711,7 +711,7 @@ export const zone = async (req: Request, res: Response, next: NextFunction) => {
                     const zone_id: number = value.zone_id || 0; 
                     const zone_name:number= value.zone_name || 0;  
                     const zone_url: string = value.zone_url || null;
-                    const ads_status: string = value.ads_status || null;                         
+                    const ads_StatusCode: string = value.ads_status || null;                         
                     const data = {  
                                   zone_id:zone_id,
                                   zone_name:zone_name,
@@ -729,7 +729,7 @@ export const zone = async (req: Request, res: Response, next: NextFunction) => {
                         remark: "success",
                         StatusDescription: 'Success',
                         message_th: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query:query,
@@ -819,7 +819,7 @@ export const category = async (req: Request, res: Response, next: NextFunction) 
         const resultcache = await Cache.GetCacheData(keycache); 
         if (resultcache != null) {
             //console.log("GetCacheData result cache ", resultcache)
-            const redisstatus: any = 1;
+            const redis_st: any = 1;
             const Result = resultcache;
             console.log("CacheData ", Result)
             if (deletekey == 1) { 
@@ -834,11 +834,11 @@ export const category = async (req: Request, res: Response, next: NextFunction) 
                             remark: "success",
                             StatusDescription: 'Success',
                             message_th: 'สำเร็จ', 
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: Result,
-                        cache_status: redisstatus,
+                        cache_StatusCode: redisstatus,
                         cache_type: 'redis', 
                         query: query,                       
                         category_id:category_id,
@@ -922,7 +922,7 @@ export const category = async (req: Request, res: Response, next: NextFunction) 
                         remark: "success",
                         StatusDescription: 'category',
                         message_th: 'สำเร็จ',
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query: query,

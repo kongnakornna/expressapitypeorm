@@ -17,7 +17,7 @@ export const CheckAuthMiddleware = (req: Request, res: Response, next: NextFunct
       }
     });
   } catch (error) {
-    res.StatusCode(401).json({  status: 0, StatusDescription: "forbidden access,You are not authenticated!,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง กรุณาตรวสอบการ Authorization",data: null});
+    res.StatusCode(401).json({  StatusCode: 0, StatusDescription: "forbidden access,You are not authenticated!,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง กรุณาตรวสอบการ Authorization",data: null});
     console.log("error", error) 
   }
 }
@@ -28,7 +28,7 @@ export const CheckAuthMiddlewareSECRETKEY = (req: Request, res: Response, next: 
     if(token == process.env.SECRET_KEY) next();
     else throw new Error("Unauthorized!");
   } catch (error) {
-    res.StatusCode(401).json({  status: 0, StatusDescription: "Unauthorized !,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง  ",data: null});
+    res.StatusCode(401).json({  StatusCode: 0, StatusDescription: "Unauthorized !,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง  ",data: null});
     console.log("error", error) 
   }
 }
@@ -49,7 +49,7 @@ export const authenticateMiddleware = (req: Request, res: Response, next: NextFu
       }
     });
   } catch (error) {
-    res.StatusCode(401).json({  status: 0, StatusDescription: "forbidden access,Unauthorized!,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง กรุณาตรวสอบการ Authorization",data: null});
+    res.StatusCode(401).json({  StatusCode: 0, StatusDescription: "forbidden access,Unauthorized!,Token Expired or Invalid Token",message_th: " Token หมดอายุ หรือ Token ไม่ถูกต้อง กรุณาตรวสอบการ Authorization",data: null});
     console.log("error", error) 
   }
 }

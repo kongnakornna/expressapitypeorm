@@ -158,7 +158,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
                     member_id: member_id,
                     username: user_username,                       
                     email: user_email,
-                    status: user_status,
+                    StatusCode: user_status,
                     group: user_group,
                     create_date : user_create_date,
                     create_ip: user_create_ip,
@@ -179,7 +179,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
                     tel: psn_tel,
                     id_number: psn_id_number,
                     psn_birthdate: psn_birthdate,
-                    psn_public_status: psn_public_status,
+                    psn_public_StatusCode: psn_public_status,
                     job_name: job_name,
                     job_address: job_address,
                     job_edu_name: job_edu_name,
@@ -191,7 +191,7 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
                     acc_user_tvw: acc_user_tvw,
                     acc_user_tvw_nid: acc_user_tvw_nid,
                     introduce: introduce,
-                    privacy_policy_status: privacy_policy_status,
+                    privacy_policy_StatusCode: privacy_policy_status,
                     curator_child_email: curator_child_email,
                     salutation: salutation,
                     school_id: school_id,
@@ -215,13 +215,33 @@ export const getUser = async (req: Request, res: Response, next: NextFunction) =
     // console.table(resultData);
     /*****************************************/ 
     /*****************************************/ 
+    /*
+        Context.Response.StatusCode = 401;
+        Context.Response.StatusDescription = "SessionExpired";
+        Context.Response.IsSuccess = "false";
+        Context.Response.Message = "SessionExpired"; 
+ 
+    */
+    /*
+        Context.Response.StatusCode: 401;
+        Context.Response.StatusDescription: "SessionExpired";
+        Context.Response.IsSuccess: "false";
+        Context.Response.Message: "SessionExpired"; 
+ 
+    */ 
+    const Response_data = {
+            StatusCode: 401,
+            StatusDescription: "SessionExpired",
+            IsSuccess: "false",
+            Message: "SessionExpired"  
+        }
     var payload = {
                     response: {
                         result: "true",
                         remark: "success",
                         StatusDescription: 'Success',
                        StatusDescription_thai: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query:query,
@@ -275,7 +295,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                     remark: "Warning!!",
                     StatusDescription: 'user_id is null',
                    StatusDescription_thai: 'ไม่พบข้อมูล user_id',
-                    status: 404,
+                    StatusCode: 404,
                     time_ms: null
                 },
                 data: null,
@@ -297,7 +317,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                             remark: "Unaccess",
                             StatusDescription: 'otp is null',
                            StatusDescription_thai: 'ไม่พบข้อมูล otp กรุณาตรวจสอบ',
-                            status: 400,
+                            StatusCode: 400,
                             time_ms: null
                         },
                         data: null,
@@ -322,7 +342,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                         remark: "Unaccess",
                         StatusDescription: 'otp is not accurate',
                        StatusDescription_thai: 'otp  ไม่ถูกต้อง กรุณาตรวจสอบ',
-                        status: 400,
+                        StatusCode: 400,
                         time_ms: null
                     },
                     data: null,
@@ -441,7 +461,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                                         user_password: user_password,
                                         user_password_tmp: user_password_tmp,
                                         user_email: user_email,
-                                        user_status: user_status,
+                                        user_StatusCode: user_status,
                                         user_group: user_group,
                                         user_permission: user_permission,
                                         user_create_date : user_create_date,
@@ -463,7 +483,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                                         psn_tel: psn_tel,
                                         psn_id_number: psn_id_number,
                                         psn_birthdate: psn_birthdate,
-                                        psn_public_status: psn_public_status,
+                                        psn_public_StatusCode: psn_public_status,
                                         job_name: job_name,
                                         job_address: job_address,
                                         job_edu_name: job_edu_name,
@@ -475,7 +495,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                                         acc_user_tvw: acc_user_tvw,
                                         acc_user_tvw_nid: acc_user_tvw_nid,
                                         introduce: introduce,
-                                        privacy_policy_status: privacy_policy_status,
+                                        privacy_policy_StatusCode: privacy_policy_status,
                                         curator_child_email: curator_child_email,
                                         salutation: salutation,
                                         school_id: school_id,
@@ -513,7 +533,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                                         remark: "Data has been deleted tmp.",
                                         StatusDescription: 'Data has been deleted already exists tmp.',
                                        StatusDescription_thai: 'เคยทำการลบข้อมูลไปแล้ว.',
-                                        status: 200,
+                                        StatusCode: 200,
                                         time_ms: null
                                     }, 
                                     data: rowLog,
@@ -545,7 +565,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                             remark: "Data has been deleted.",
                             StatusDescription: 'Data has been deleted already exists.',
                            StatusDescription_thai: 'ทำการลบข้อมูลแล้ว.',
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         insertDataLog: insertDataLog,
@@ -562,7 +582,7 @@ export const RemoveUser = async (req: Request, res: Response, next: NextFunction
                             remark: "Not information found in the system.",
                             StatusDescription: 'Not information found in the system.',
                            StatusDescription_thai: 'ไม่พบข้อมูล ในระบบ',
-                            status: 200,
+                            StatusCode: 200,
                             time_ms: null
                         },
                         data: null,
@@ -710,7 +730,7 @@ for (const [key, value] of Object.entries(ResultArray)) {
                 member_id: member_id,
                 username: user_username,                       
                 email: user_email,
-                status: user_status,
+                StatusCode: user_status,
                 group: user_group,
                 create_date : user_create_date,
                 create_ip: user_create_ip,
@@ -731,7 +751,7 @@ for (const [key, value] of Object.entries(ResultArray)) {
                 tel: psn_tel,
                 id_number: psn_id_number,
                 psn_birthdate: psn_birthdate,
-                psn_public_status: psn_public_status,
+                psn_public_StatusCode: psn_public_status,
                 job_name: job_name,
                 job_address: job_address,
                 job_edu_name: job_edu_name,
@@ -743,7 +763,7 @@ for (const [key, value] of Object.entries(ResultArray)) {
                 acc_user_tvw: acc_user_tvw,
                 acc_user_tvw_nid: acc_user_tvw_nid,
                 introduce: introduce,
-                privacy_policy_status: privacy_policy_status,
+                privacy_policy_StatusCode: privacy_policy_status,
                 curator_child_email: curator_child_email,
                 salutation: salutation,
                 school_id: school_id,
@@ -773,7 +793,7 @@ console.warn(resultData)
                         remark: "success",
                         StatusDescription: 'Success',
                        StatusDescription_thai: 'สำเร็จ', 
-                        status: 200,
+                        StatusCode: 200,
                         time_ms: null
                     },
                     input_query:query,

@@ -10,8 +10,8 @@ const util = require('util')
 // import bodytypeSchema from '../schemas/bodytype' 
 const router = express.Router(); 
 //modules plookcourse  
-router.post("/", (req: Request, res: Response) => ok(res, { router:"course"  ,StatusDescription: "Modules course ",message_th: "ระบบ course", status: "true"  , statusCode: 200,data:null}));
-router.get("/", (req: Request, res: Response) => ok(res, { router:"course"  ,StatusDescription: "Modules course ",message_th: "ระบบ course", status: "true"  , statusCode: 200,data:null}));
+router.post("/", (req: Request, res: Response) => ok(res, { router:"course"  ,StatusDescription: "Modules course ",message_th: "ระบบ course", StatusCode: "true"  , statusCode: 200,data:null}));
+router.get("/", (req: Request, res: Response) => ok(res, { router:"course"  ,StatusDescription: "Modules course ",message_th: "ระบบ course", StatusCode: "true"  , statusCode: 200,data:null}));
 // level student 
 router.get("/level", CheckAuthMiddleware, PlookcourseController.getLevel);
 // category course  

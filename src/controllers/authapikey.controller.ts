@@ -81,16 +81,14 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
                 var gen: number = 0; 
                 const result = generateToken({gen}); 
                 ok(res, { 
-                        token: result, 
-                        status: 1, 
+                        token: result,   
                         idkey:apikey,
                         StatusDescription: 'Generated token has been successfully',
                         message_th: 'สร้าง โทเค็นสำเร็จ สามารถนำไปเข้าระบบได้' ,
                     });
             }else{
                 ok(res, {  
-                    token: null, 
-                    status: 0, 
+                    token: null,   
                     idkey:null,
                     StatusDescription: 'forbidden access,invalid apikey',
                     message_th: 'ไม่อนุญาตให้เข้าถึงระบบ,apikey ไม่ถูกต้อง', 
@@ -103,16 +101,14 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
                 var gen: number = 0; 
                 const result = generateToken({gen}); 
                 ok(res, { 
-                        token: result, 
-                        status: 1, 
+                        token: result,   
                         idkey:user_id,
                         StatusDescription: 'Generated token has been successfully',
                         message_th: 'สร้าง โทเค็นสำเร็จ สามารถนำไปเข้าระบบได้' ,
                     });
             } else {
                 ok(res, { 
-                    token:null,
-                    status: 0,
+                    token:null, 
                     idkey:user_id,
                     StatusDescription: 'user_id  not match  ,forbidden access ',
                     message_th: 'user_id  ไม่ถูกต้อง ไม่อนุญาตให้เข้าถึงระบบ', 
@@ -121,8 +117,7 @@ export const generateAccessToken = async (req: Request, res: Response, next: Nex
 
         }else{ 
             ok(res, {  
-                token: null, 
-                status: 0, 
+                token: null,   
                 idkey:null,
                 StatusDescription: 'forbidden access,please send data apikey or user_id to generate token',
                 message_th: 'ไม่อนุญาตให้เข้าถึงระบบ,กรุณาส่ง apikey หรือ user_id เพื่อรับ token', 
@@ -141,8 +136,7 @@ export const generateState = async (req: Request, res: Response, next: NextFunct
                 const gen: any = Randomint(6); 
                 const result = generstate({gen}); 
                 ok(res, { 
-                        state: result, 
-                        status: 1,  
+                        state: result,   
                         StatusDescription: 'Generated state has been successfully',
                         message_th: 'สร้าง state สามารถนำไปใช้งานในระบบได้' ,
                     });

@@ -8,8 +8,8 @@ import * as UserController from "../controllers/user.controller";
 const util = require('util')
 const router = express.Router(); 
 //modules User  
-router.post("/", (req: Request, res: Response) => ok(res, { router:"user"  , StatusDescription: "Modules user ",message_th: "ระบบ user",  status: "true"  , statusCode: 200,data:null}));
-router.get("/", (req: Request, res: Response) => ok(res, { router:"user"  ,StatusDescription: "Modules user ",message_th: "ระบบ user", status: "true"  , statusCode: 200,data:null}));
+router.post("/", (req: Request, res: Response) => ok(res, { router:"user"  , StatusDescription: "Modules user ",message_th: "ระบบ user",  StatusCode: "true"  , statusCode: 200,data:null}));
+router.get("/", (req: Request, res: Response) => ok(res, { router:"user"  ,StatusDescription: "Modules user ",message_th: "ระบบ user", StatusCode: "true"  , statusCode: 200,data:null}));
 router.get("/list", CheckAuthMiddleware, UserController.getUser);
 router.post("/list", CheckAuthMiddleware, UserController.getUser);
 router.get("/tempuser", CheckAuthMiddleware, UserController.getUsersDeleteTemp);
