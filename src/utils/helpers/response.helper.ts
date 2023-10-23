@@ -137,11 +137,7 @@ serviceunavailable=503,
 
 message = response.Message, iserror = response.IsSuccess ? false : true
 
-
-
-
 import { ok, serverError, created, Accepted, noContent, badRequest, Unauthorized, Forbidden, NotFound, serviceunavailable } from "../utils/helpers/response.helper";
-
 export const getUser = async (req: Request, res: Response, next: NextFunction) => {
 
 const response: any = {} 
@@ -150,27 +146,19 @@ response.IsSuccess = false;
 response.Message = "test";
 response.StatusCode = 200;
 response.StatusDescription = 'Generated token has been successfully';
-ok(res, response);
-return
-
-
 const filter: any = {} 
-filter.user_id=user_id;
-filter.course_id=course_id;
 filter.keyword=newKeyword;
-filter.category_id=category_id;
-filter.subject_id=subject_id;
-filter.subject_parent_id=subject_parent_id;
-filter.class_level=level_id;
 filter.start=start;
 filter.end=end; 
 filter.order=order;
 filter.pages=page;
 filter.sizepsge=size;
 filter.isCount=0;
-
-ok(res, filter);
+response.filter=filter;
+const rsdara: any = {} 
+rsdara.data=rs;
+response.data=rsdara;
+ok(res, response.);
 return
-
 
 */
