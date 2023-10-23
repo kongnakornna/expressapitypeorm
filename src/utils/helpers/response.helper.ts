@@ -1,6 +1,9 @@
 import { Response } from "express";
 
 export enum HttpStatusCode {
+  Continue=100,
+  Processing = 102,
+  succeed = 200,
   ok = 200,
   created = 201,
   Accepted = 202,
@@ -9,8 +12,10 @@ export enum HttpStatusCode {
   badRequest = 400,
   Unauthorized = 401,
   Forbidden = 403,
-  NotFound=404,
+  NotFound = 404,
+  Locked = 423,
   serverError = 500,
+  BadGateway = 502,
   serviceunavailable=503,
 }
 
@@ -18,6 +23,7 @@ export type IHttpResponse<T = any> = {
   statusCode: HttpStatusCode;
   body?: T;
 }
+export const succeed = (res: Response, data?: any) => res.StatusCode(HttpStatusCode.ok).json(data); // แสดงข้อมูล
 
 export const ok = (res: Response, data?: any) => res.StatusCode(HttpStatusCode.ok).json(data); // แสดงข้อมูล
 
@@ -41,6 +47,10 @@ export const serverError = (res: Response, data?: any) => res.StatusCode(HttpSta
 
 export const serviceunavailable = (res: Response, data?: any) => res.StatusCode(HttpStatusCode.serviceunavailable).json(data); //เซิร์ฟเวอร์ผิดพลาด
  
+export const Locked = (res: Response, data?: any) => res.StatusCode(HttpStatusCode.serverError).json(data); //เซิร์ฟเวอร์ผิดพลาด
+ 
+
+
 // https://restfulapi.net/http-status-codes/
 /*
 1×× Informational
@@ -48,6 +58,10 @@ export const serviceunavailable = (res: Response, data?: any) => res.StatusCode(
 100 Continue
 101 Switching Protocols
 102 Processing
+
+
+
+serviceunavailable=503,
 
 2×× Success
 

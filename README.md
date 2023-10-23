@@ -345,8 +345,13 @@ Run `pm2 monit ` // เมื่อต้องการดูว่าตอน
 
 ###  Run ` pm2 start ts-node --name=8032/demo-- -P tsconfig.json src/server.ts ` 
 
-
+###  Run ` npm install express body-parser jsonschema` 
 ``````
+
+ https://snowball.digital/blog/validating-rest-endpoints-with-json-schemas-using-express-and-node-js
+ 
+ 
+ https://www.npmjs.com/package/express-json-validator-middleware
 
  Context.Response.StatusCode = 401;
  Context.Response.StatusDescription = "SessionExpired";
