@@ -2,8 +2,8 @@
   "name": "demo",
   "version": "1.0.1",
   "endPoint": "/demo",
-  "pm2Name": "3032/demo",
-  "port": 3032,
+  "pm2Name": "8032/demo",
+  "port": 8032,
   "private": true,
   "main": "server.ts",
   "scripts": {

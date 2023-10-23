@@ -345,3 +345,10 @@ Run `pm2 monit ` // เมื่อต้องการดูว่าตอน
 
 ###  Run ` pm2 start ts-node --name=8032/demo-- -P tsconfig.json src/server.ts ` 
 
+
+``````
+
+ Context.Response.StatusCode = 401;
+ Context.Response.StatusDescription = "SessionExpired";
+
+``````
